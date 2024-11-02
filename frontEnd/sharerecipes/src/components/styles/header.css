@@ -1,0 +1,59 @@
+.header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    align-items: center;
+}
+
+.apptitle h2 {
+    color: rgba(8, 0, 48, 0.871);
+}
+
+.navigation {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    flex-wrap: nowrap;
+    gap: 35px;
+}
+
+.cookingicon {
+    font-size: 3rem;
+    color: rgb(245, 105, 89);
+}
+
+.apptitle {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-signup {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    align-items: center;
+    gap: 5px;
+}
+
+.linknav {
+    text-decoration: none;
+    color: black;
+}
+
+.linknav:hover{
+    color: rgb(245, 105, 89); 
+    text-decoration: underline;
+
+}
+
+.active-link {
+    color: rgb(245, 105, 89); 
+    text-decoration: underline;
+}

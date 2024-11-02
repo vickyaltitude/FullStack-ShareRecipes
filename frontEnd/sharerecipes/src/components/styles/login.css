@@ -1,0 +1,73 @@
+.login{
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 0, 48, 0.871);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm{
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    font-size: 1.3rem;
+
+}
+
+.loginForm input{
+    width: 400px;
+    height: 45px;
+    border-radius: 15px;
+    padding: 7px;
+    font-size: 1.2rem;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    transition: box-shadow 0.3s; 
+
+}
+
+
+.loginForm button{
+    width: 400px;
+    height: 45px;
+    background: rgb(245, 105, 89);
+    border-radius: 15px;
+    font-size: 1.3rem;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+
+}
+
+
+.loginForm button:hover{
+    width: 400px;
+    cursor: pointer;
+    height: 45px;
+    border-radius: 15px;
+    background: rgba(245, 105, 89, 0.642);
+    color:black;
+    font-size: 1.3rem;
+}
+
+.logintosignup{
+    color: rgb(245, 105, 89);
+}
+
+.logintosignup:hover{
+    color: rgba(245, 105, 89, 0.642);
+}
+.loginhead{
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
