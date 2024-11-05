@@ -1,9 +1,23 @@
-import React from 'react';
+import {React ,useEffect}from 'react';
 import { NavLink } from 'react-router-dom';
 import './styles/header.css';
 import { GiCampCookingPot } from "react-icons/gi";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+
+    const navigate = useNavigate();
+
+    let recipeUser = localStorage.getItem('recipeuser');
+
+  function handleNavLinkClick(eve,route){
+    
+    
+    if (!recipeUser && (route === '/sharerecipes' || route === '/authors')) {
+      eve.preventDefault(); 
+      navigate('/signup');   
+    }
+  }
   return (
     <div className='header'>
         <div className='apptitle'>
@@ -26,21 +40,26 @@ const Header = () => {
             <NavLink
                 className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
                 to='/sharerecipes'
+                onClick={(event) => handleNavLinkClick(event, '/sharerecipes')}
+               
             >
                 Share Recipes
             </NavLink>
             <NavLink
                 className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
                 to='/authors'
+                 onClick={(event) => handleNavLinkClick(event, '/authors')}
             >
                 Authors
             </NavLink>
-            <NavLink
+
+            {!recipeUser ? '' : <NavLink
                 className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
                 to='/myrecipes'
             >
                 My recipes
-            </NavLink>
+            </NavLink>}
+            
             <NavLink
                 className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
                 to='/aboutus'
@@ -49,18 +68,25 @@ const Header = () => {
             </NavLink>
         </div>
         <div className='login-signup'>
-            <NavLink
+            {recipeUser ?  (<NavLink
+                className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
+                to='/login'
+            >
+                Logout
+            </NavLink>) : <div><NavLink
                 className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
                 to='/signup'
             >
                 Signup
             </NavLink>
+            /
             <NavLink
                 className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
                 to='/login'
             >
                 Login
-            </NavLink>
+            </NavLink></div> }
+            
             
         </div>
     </div>

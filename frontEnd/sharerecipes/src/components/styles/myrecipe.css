@@ -1,0 +1,187 @@
+.myrecipe{
+    width:100vw;
+    height:100vh;
+    font-size: 1.2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(8, 0, 48, 0.871);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.myrecipes{
+
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 5px 0px;
+}
+
+.myrecipesnav{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    align-items: center;
+    padding-right: 40px;
+}
+
+
+.linknav {
+        
+   
+    text-decoration: none;
+    color: black;
+}
+
+.linknav:hover{
+    color: rgb(245, 105, 89); 
+    text-decoration: underline;
+
+}
+
+.active-link {
+    color: rgb(245, 105, 89); 
+    text-decoration: underline;
+}
+.myrecipes ul,.favorites ul{
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+   
+}
+
+.myrecipes ul li,.favorites ul li{
+    height: auto;
+    list-style-type: none;
+    border: 5px solid #696969;
+    padding: 10px 5px;
+    line-height: 35px;
+    background:  #ffffff; /* Slightly transparent background */
+    color: #333333; /* Text color */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Initial shadow */
+}
+.myrecipes ul li:hover,.favorites ul li:hover {
+    transform: translateY(-3px); 
+    cursor: pointer;
+    border-color: coral; 
+}
+
+.displaytitle{
+    color: #008080;
+}
+
+.favorites{
+
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 5px 0px;
+
+}
+.removefromfav{
+   font-size: 1rem;
+    width: 100%;
+    background: #ff6d53;
+    color: rgb(8, 8, 8);
+    height: 30px;
+}
+.removefromfav:hover{
+
+    background: #ff6d53b1;
+    cursor: pointer;
+}
+.editrecipe{
+    font-size: 1rem;
+    width: 100%;
+    background: #fff153;
+    color: rgb(8, 8, 8);
+    height: 30px;
+}
+.editrecipe:hover{
+
+    background: #fff153ab;
+    cursor: pointer;
+}
+
+.collections{
+
+    
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 5px 0px;
+}
+
+.collectionsul{
+
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 30px 50px;
+    gap:15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+
+.collectionsli{
+    width:30%;
+    min-height: 50px;
+    display: flex;
+    color: #333333;
+    border-radius: 15px;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    gap: 30px;
+    background: white;
+}
+.collectionsli:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.752);
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform: translateY(-2px); 
+}
+
+.totalrecipes{
+
+    width:20%;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ff6d53;
+    color: #ffffff;
+    height: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.collectionname{
+    width:80%;
+    text-align: center;
+}

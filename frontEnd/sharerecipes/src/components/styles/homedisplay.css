@@ -13,7 +13,7 @@
 }
 .displayrecipe{
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,8 +49,10 @@
    
 }
 
-.recipesul li{
+.recipesul .recipesli{
+    text-decoration: none;
     height: auto;
+    width: 300px;
     list-style-type: none;
     border: 5px solid #696969;
     padding: 10px 5px;
@@ -60,12 +62,25 @@
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Initial shadow */
 }
-.recipesul li:hover {
+.recipesul .recipesli:hover {
     transform: translateY(-5px); 
     cursor: pointer;
     border-color: coral; 
 }
 
+
+
 .displaytitle{
     color: #008080;
+}
+.displayvarietyrecipe{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 5px 0px;
+    padding-top: 5px;
 }

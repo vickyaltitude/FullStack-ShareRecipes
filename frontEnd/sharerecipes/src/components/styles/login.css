@@ -55,13 +55,7 @@
     font-size: 1.3rem;
 }
 
-.logintosignup{
-    color: rgb(245, 105, 89);
-}
 
-.logintosignup:hover{
-    color: rgba(245, 105, 89, 0.642);
-}
 .loginhead{
     width: 100%;
     height:100%;

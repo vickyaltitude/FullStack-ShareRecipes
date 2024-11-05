@@ -1,14 +1,33 @@
 import React from 'react'
-import Reciperating from '../Reciperating'
-import { NavLink } from 'react-router-dom'
-import '../styles/homedisplay.css'
+import { NavLink, useParams } from 'react-router-dom'
+import Reciperating from '../Home/Reciperating';
+import '../styles/myrecipe.css'
 
-const DisplayRecipeHome = ({homeDisplay}) => {
+
+const CollectionRecipe = ({homeDisplay,collections}) => {
+    const {id} = useParams()
+    let showR = collections.filter(collection => collection.collectionId === Number(id));
+    console.log(showR)
+    let recipesArr = showR[0].recipes;
+    console.log(recipesArr)
+    let recipes = recipesArr.map(recipe => {
+      
+        return  homeDisplay.filter(recipes =>{
+            return recipe === recipes.recipeId
+         })
+       
+       })
+       let showRecipes = recipes.flat();
+    
+      console.log(showRecipes)
   return (
-    <div className='displayrecipe'>
-        {homeDisplay.length > 0 ? (
+    <>
+    <h2>Collections</h2>
+    <div className='favorites'>
+
+    {showRecipes.length > 0 ? (
     <ul className='recipesul'>
-        {homeDisplay.map((recipe) => (
+        {showRecipes.map((recipe) => (
             <NavLink to={`/home/${recipe.recipeId}`} className='recipesli' key={recipe.recipeId}>
                 <img alt={recipe.recipeName} src={recipe.recipeTemplate} height='100%' width='100%' />
                 <hr/>
@@ -24,10 +43,10 @@ const DisplayRecipeHome = ({homeDisplay}) => {
     <h2 style={{ color: 'whitesmoke' }}>Nothing to display</h2>
 )}
 
-               
-        
-        </div>
+    </div>
+    </>
+    
   )
 }
 
-export default DisplayRecipeHome
+export default CollectionRecipe

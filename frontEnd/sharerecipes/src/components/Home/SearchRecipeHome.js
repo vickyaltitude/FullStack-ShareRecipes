@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/myrecipe.css'
 
 const SearchRecipeHome = ({searchRecipe,setSearchRecipe}) => {
   return (

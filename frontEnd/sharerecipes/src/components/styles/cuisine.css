@@ -57,7 +57,7 @@
     list-style-type: none;
     border: 5px solid #696969;
     padding: 10px 5px;
-    max-width: 28%;
+    width: 28%;
     line-height: 35px;
     background:  #ffffff; 
     color: #333333; 
@@ -117,12 +117,22 @@
 }
 
 .listvarietiescount{
-    width: 100%;
+    width: auto;
     height: auto; /* Set to auto to adjust based on content */
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 5px; 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: #333333;
     
+}
+
+.listvarietiescount span:hover{
+ 
+    color: #333333b2;
+
 }
 
 .listvarietiescount span{
@@ -130,5 +140,6 @@
     text-align: left;
     overflow: visible; 
     text-wrap: wrap;
+    text-decoration: none;
 
 }

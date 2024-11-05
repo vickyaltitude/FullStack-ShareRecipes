@@ -55,13 +55,8 @@
     font-size: 1.3rem;
 }
 
-.signuptologin{
-    color: rgb(245, 105, 89);
-}
 
-.signuptologin:hover{
-    color: rgba(245, 105, 89, 0.642);
-}
+
 
 .signuphead{
     width: 100%;

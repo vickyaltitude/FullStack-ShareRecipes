@@ -11,7 +11,7 @@ const Login = () => {
             Login
             </h1>
             <h4>
-            Login or <Link className='logintosignup' to='/signup'>signup</Link> if new user...
+            Login or <Link className='logintosignup' style={{color:'white'}} to='/signup'>signup</Link> if new user...
             </h4>
             </p>
             <p>

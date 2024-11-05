@@ -1,7 +1,8 @@
 import React from 'react'
 import '../styles/cuisine.css'
+import { NavLink, Outlet } from 'react-router-dom'
 
-const DisplayCuisine = ({cuisines}) => {
+const DisplayCuisine = ({cuisines,handleFetchVarities}) => {
   return (
     <div className='displaycuisine'>
       {cuisines.length > 0 ? (
@@ -12,15 +13,23 @@ const DisplayCuisine = ({cuisines}) => {
                 <hr/>
                 <img alt={cuisine.cuisineName} src={cuisine.cuisineImg} height='200px' width='260px' />
                 <hr/>
-                <h4 style={{color:'#008080'}}>{cuisine.cuisineName} Dish Varities</h4>
+                <h4 style={{color:'#008080'}}>Dish Varities</h4>
                 {cuisine.cuisineVarities.length > 0 ?  (
 
                             <ul className='cuisineVarietyul'>
                             {cuisine.cuisineVarities.map(variety => (
-                                <li className='listvarietiescount' key={variety.cName}>
-                                    <span>{variety.cName}</span>
-                                    <span style={{color:'red'}}>{`(${variety.cCount})`}</span>
-                                </li>
+                              <NavLink 
+                              to={`/cuisines/${cuisine.cuisineId}-${variety.cName}`} 
+
+                             
+                              className='listvarietiescount' 
+                              key={`${cuisine.cuisineId}/${variety.cName}`}
+                            >
+                              <p>
+                                <span>{variety.cName}</span>
+                                <span style={{ color: 'red' }}>{`(${variety.cCount})`}</span>
+                              </p>
+                            </NavLink>
                             ))}
                             </ul>
 
@@ -32,6 +41,8 @@ const DisplayCuisine = ({cuisines}) => {
 ) : (
     <h2 style={{ color: 'whitesmoke' }}>Nothing to display</h2>
 )}
+
+<Outlet />
     </div>
   )
 }
