@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import './styles/signup.css'
 import { useEffect,useState } from 'react'
 
-const Signup = ({users,setUsers,signinEmail,setSigninEmail,signinName,setSigninName,handleSignin}) => {
+const Signup = ({users,signinEmail,setSigninEmail,signinName,setSigninName,handleSignin,setSigninPasswrd,signinPasswrd,successSigninMsg}) => {
     
 
   const [userNameError, setUserNameError] = useState(false);
@@ -46,6 +46,10 @@ const Signup = ({users,setUsers,signinEmail,setSigninEmail,signinName,setSigninN
               {userNameError ?  <p style={{color:'red' ,paddingBottom:'8px'}}>
                   User Name already taken!  Try different name
               </p> : ''}
+
+              {successSigninMsg ? <p style={{color:'#90EE90' ,paddingBottom:'8px'}}>
+                  {successSigninMsg}
+              </p> : ''}
              
             <label>
               Name: <span>(This will be your username)</span>
@@ -81,7 +85,10 @@ const Signup = ({users,setUsers,signinEmail,setSigninEmail,signinName,setSigninN
             <label>
              Password:
             </label>
-            <input type='password' id='userPassword' placeholder='enter password' required/>
+            <input type='password' value={signinPasswrd} id='userPassword' placeholder='enter password'  onChange={(e)=> {
+              setSigninPasswrd(e.target.value)}
+
+              }  required/>
             </p>
            
              <p>

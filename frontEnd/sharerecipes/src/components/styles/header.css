@@ -57,3 +57,18 @@
     color: rgb(245, 105, 89); 
     text-decoration: underline;
 }
+
+.logoutbtn{
+    height:30px;
+    width: 100px;
+    border-radius: 15px;
+    background: rgb(245, 105, 89);
+    color: whitesmoke;
+    font-weight: bolder;
+   
+}
+
+.logoutbtn:hover{
+    background: rgba(245, 105, 89, 0.807);
+    cursor: pointer;
+}

@@ -8,7 +8,7 @@ const MyrecipeHead = () => {
          <div className='myrecipesnav'>
             <NavLink style={{color:'whitesmoke'}} className='linknav' to='.'  >My recipes</NavLink>
             <NavLink style={{color:'whitesmoke'}} className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')} to='favourites'  >Favourites</NavLink>
-            <NavLink style={{color:'whitesmoke'}} className={({ isActive }) => (isActive ? 'linknav  active-link' : ' linknav')} to='collections' >Collections</NavLink>
+            
       </div>
         <Outlet />
     </div>

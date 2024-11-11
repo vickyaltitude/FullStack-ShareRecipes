@@ -155,3 +155,18 @@ ul {
     padding: 5px;
 
 }
+
+.imgside button{
+    width: 45%;
+    height: 42px;
+    border-radius: 15px;
+     background: rgb(235, 68, 96);
+     font-weight: bolder;
+     color: aliceblue;
+}
+
+.imgside button:hover{
+
+    background: rgba(235, 68, 96, 0.823);
+    cursor: pointer;
+}

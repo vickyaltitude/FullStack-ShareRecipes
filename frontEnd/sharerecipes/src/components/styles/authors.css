@@ -105,6 +105,7 @@
     color: #ffffff;
     width:180px;
     border-radius: 12px;
+    height: 40px;
 }
 .unfollowbtn:hover {
     background-color: #c82333;
@@ -119,6 +120,7 @@
     color: #ffffff;
     width:180px;
     border-radius: 12px;
+    height: 40px;
 }
 .viewcontirubitonbtn:hover {
     background-color: #218838;

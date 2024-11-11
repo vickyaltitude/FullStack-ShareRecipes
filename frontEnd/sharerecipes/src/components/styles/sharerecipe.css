@@ -1,4 +1,4 @@
-.sharerecipe {
+.sharerecipe,.editrecipeDis {
     max-width: 100vw;
     max-height: 100vh;
     font-size: 1.2rem;
@@ -14,7 +14,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.sharerecipeform {
+.sharerecipeform,.editrecipeform {
     width: 100vw;
     max-height: 100vh;
     display: flex;
@@ -31,7 +31,7 @@
     font-size: 1.4rem;
 }
 
-.sharerecipeF input {
+.sharerecipeF input,.editrecipeF input {
     display: block;
     width: 280px;
     height: 40px;
@@ -43,12 +43,12 @@
     transition: background 0.3s, border 0.3s; 
 }
 
-.sharerecipeF input:hover {
+.sharerecipeF input:hover,.editrecipeF input:hover {
     background: rgba(255, 255, 255, 0.763); 
     border: 1px solid #fff; 
 }
 
-.sharerecipeF textarea {
+.sharerecipeF textarea,.editrecipeF textarea {
     display: block;
     width: 500px;
     height: 200px;
@@ -60,12 +60,12 @@
     transition: background 0.3s, border 0.3s; 
 }
 
-.sharerecipeF textarea:hover {
+.sharerecipeF textarea:hover,.editrecipeF textarea:hover {
     background: rgba(255, 255, 255, 0.763); 
     border: 1px solid #fff; 
 }
 
-.sharerecipeF select {
+.sharerecipeF select,.editrecipeF select {
     display: block;
     width: 280px;
     color: #008080c7;
@@ -79,7 +79,7 @@
     transition: background 0.3s, border 0.3s; 
 }
 
-.sharerecipeF select:hover {
+.sharerecipeF select:hover,.editrecipeF select:hover {
     background: rgba(255, 255, 255, 0.763); 
     border: 1px solid #fff; 
 }
@@ -100,23 +100,7 @@
    cursor: pointer;
 }
 
-.resetrecipe{
 
-    background: rgb(245, 105, 89);
-    color: whitesmoke;
-    width: 250px;
-    height: 45px;
-    border-radius: 15px;
-    font-size: 1.2rem;
-
-}
-
-.resetrecipe:hover{
-
-    background: rgba(245, 105, 89, 0.808);
-    color: whitesmoke;
-    cursor: pointer;
-}
 
 .formButtons{
 

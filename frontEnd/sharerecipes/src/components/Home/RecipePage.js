@@ -3,20 +3,40 @@ import { useParams } from 'react-router-dom'
 import Reciperating from '../Reciperating';
 import '../styles/recipePage.css'
 
-const RecipePage = ({homeDisplay}) => {
+const RecipePage = ({homeDisplay,setFavorite,favorite}) => {
 
      const {id} = useParams()
      const recipe = homeDisplay.filter(recipe => recipe.recipeId === Number(id));
+     let favStr = favorite.length ? favorite.join(',') : '' ;
+     console.log(favStr)
+     console.log(favStr,recipe[0].recipeId)
+     function handleAddFavbtn(ev,recid){
+        ev.preventDefault();
+         let newFavorite = [...favorite,recid];
+         setFavorite(newFavorite);
+     }
+
+     function handleRemFavbtn(ev,id){
+
+        ev.preventDefault();
+
+     let newFav = favorite.filter(fav => fav !== Number(id))
+     
+    setFavorite(newFav)
+
+     }
   return (
     <div className='disrecipe'>
          {recipe.length > 0 ? (
                
                  <div className='recipecontainer'>
                     <div className='topportions'>
-                            <img  alt={recipe[0].recipeName} src={recipe[0].recipeTemplate} height='100%' width='100%' />
+                            <img  alt={recipe[0].recipeName} src={recipe[0].recipeTemplate} height='220px' width='100%' />
                             <div className='imgside'>
                                 <p>Rating : <Reciperating className='showrecpage' recipeRating={recipe[0].reciperating} /> </p>
                                 <p>Author : {recipe[0].recipeAuthor}</p>
+                                {!favStr.includes(recipe[0].recipeId.toString()) ? <button onClick={(e)=> handleAddFavbtn(e,recipe[0].recipeId)}>Add favorite</button> : <button onClick={(e)=> handleRemFavbtn(e,recipe[0].recipeId)}>Remove favorite</button>}
+                                
                             </div>
                     </div>
                     <div className='bottomportions'>

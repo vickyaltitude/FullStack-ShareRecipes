@@ -1,11 +1,19 @@
 import {React} from 'react'
 import Reciperating from '../Home/Reciperating'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 import '../styles/homedisplay.css'
 
 
 
 const Myrecipes = ({myRecipes,homeDisplay}) => {
+
+    let navigate = useNavigate();
+
+    function handleEdit(eve,recipeId){
+        eve.preventDefault();
+       
+        navigate(`/editrecipe/${recipeId}`)
+    }
       
   let recipes = myRecipes.map(recipe => {
       
@@ -28,14 +36,14 @@ const Myrecipes = ({myRecipes,homeDisplay}) => {
     <ul className='recipesul'>
         {showRecipes.map((recipe) => (
             <NavLink to={`/home/${recipe.recipeId}`} className='recipesli' key={recipe.recipeId}>
-                <img alt={recipe.recipeName} src={recipe.recipeTemplate} height='100%' width='100%' />
+                <img alt={recipe.recipeName} src={recipe.recipeTemplate} height='220px' width='100%' />
                 <hr/>
                 <h4 className='displaytitle'>Recipe Name: {recipe.recipeName}</h4>
                 <div ><Reciperating recipeRating={recipe.reciperating} /> </div>
                 <p>{recipe.recipeInstruction[0].length > 50 ? `${recipe.recipeInstruction[0].slice(0, 32)}...` : recipe.recipeInstruction[0]}</p>
                 <p>{`${recipe.recipeCuisine[0].cName} Cuisine`}</p>
                 <p className='displaytitle'>Posted By: {recipe.recipeAuthor}</p>
-                <button className='editrecipe'>Edit</button>
+                <button className='editrecipe' onClick={(e)=> handleEdit(e,recipe.recipeId)}>Edit</button>
             </NavLink>
         ))}
     </ul>

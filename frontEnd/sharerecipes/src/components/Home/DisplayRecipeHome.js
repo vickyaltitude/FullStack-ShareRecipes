@@ -10,7 +10,7 @@ const DisplayRecipeHome = ({homeDisplay}) => {
     <ul className='recipesul'>
         {homeDisplay.map((recipe) => (
             <NavLink to={`/home/${recipe.recipeId}`} className='recipesli' key={recipe.recipeId}>
-                <img alt={recipe.recipeName} src={recipe.recipeTemplate} height='100%' width='100%' />
+                <img alt={recipe.recipeName} src={recipe.recipeTemplate} height='220px' width='100%' />
                 <hr/>
                 <h4 className='displaytitle'>Recipe Name: {recipe.recipeName}</h4>
                 <div ><Reciperating recipeRating={recipe.reciperating} /> </div>

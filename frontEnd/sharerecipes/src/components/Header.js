@@ -18,6 +18,12 @@ const Header = () => {
       navigate('/signup');   
     }
   }
+
+  function handleLogout(){
+
+    localStorage.setItem('recipeuser','');
+    navigate('/login');   
+  }
   return (
     <div className='header'>
         <div className='apptitle'>
@@ -68,12 +74,12 @@ const Header = () => {
             </NavLink>
         </div>
         <div className='login-signup'>
-            {recipeUser ?  (<NavLink
-                className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
-                to='/login'
+            {recipeUser ?  (<button
+                className='logoutbtn'
+                onClick={() => handleLogout()}
             >
                 Logout
-            </NavLink>) : <div><NavLink
+            </button>) : <div><NavLink
                 className={({ isActive }) => (isActive ? 'linknav active-link' : 'linknav')}
                 to='/signup'
             >

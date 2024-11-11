@@ -1,84 +1,113 @@
-import React from 'react'
-import './styles/sharerecipe.css'
+import {React,useEffect}from 'react'
+import '../styles/sharerecipe.css'
 import { PiCookingPotDuotone } from "react-icons/pi";
 import { GiCook } from "react-icons/gi";
+import { useParams } from 'react-router-dom';
 
+const EditRecipe = ({handleEditRecipeSubmit,editRecipeFormData,setEditRecipeFormData,setShowEditVInForm,homeDisplay, cuisineEditV}) => {
 
+ const {id} = useParams();
+ 
 
-const ShareRecipes = ({handleRecipeSubmit,newRecipeFormData,setnewRecipeFormData,setShowVaritiesInForm,cuisineV}) => {
-
-  function handleChange(eve){
-
-        const {name,value} = eve.target;
-
-        if(name === 'newRecCuis'){
-          setShowVaritiesInForm(value);
-        }
-
-        setnewRecipeFormData({
-          ...newRecipeFormData,
-          [name] : value
-        })
+  function handleEditChange(ev){
       
-  }
-  
-  return (
-    <div className='sharerecipe'>
+       let {name,value} = ev.target;
 
+       if(name === 'editRecCuis'){
+        setShowEditVInForm(value);
+      }
+      setEditRecipeFormData({
+        ...editRecipeFormData,
+        [name] : value
+      })
+
+  }
+
+  
+ 
+    useEffect(() => {
+        console.log(id)
+       
+        let editRecipeArr = homeDisplay.filter(recipe => recipe.recipeId === Number(id));
+    
+    
+        if (editRecipeArr.length > 0) {
+          const recipe = editRecipeArr[0];
+    
         
-       <form className='sharerecipeform' onSubmit={(e)=> handleRecipeSubmit(e)}>
-              <p className='sharerecipeF column'>
+          const ingFormattedString = recipe.recipeIngredients.map((item, index) => `${index + 1}. ${item}`).join('\n');
+          const insFormattedString = recipe.recipeInstruction.map((item, index) => `${index + 1}. ${item}`).join('\n');
+    
+          setShowEditVInForm(recipe.recipeCuisine[0].cName)
+          setEditRecipeFormData({
+            editRecName: recipe.recipeName,
+            editRecIng: ingFormattedString,
+            editRecIns: insFormattedString,
+            editRecCuis: recipe.recipeCuisine[0].cName,
+            editRecVariety: recipe.recipeCuisine[1].cVariety,
+            editRecDiet: recipe.recipeDiet
+          });
+        }
+      }, [id,setEditRecipeFormData]); 
+ 
+
+  return (
+    <div className='editrecipeDis'>
+        
+             
+       <form className='editrecipeform' onSubmit={(e)=> handleEditRecipeSubmit(e,id)}>
+              <p className='editrecipeF column'>
                 <label htmlFor='recipename'>
                  Recipe Name:
                 </label>
                 <input
                 id='recipename'
                  type='text'
-                 value={newRecipeFormData.newRecName}
-                 onChange={(e)=>handleChange(e)}
+                 value={editRecipeFormData.editRecName || ''}
+                 onChange={(e)=>handleEditChange(e)}
                  required
-                 name='newRecName'
+                 name='editRecName'
                  placeholder='recipe name'
                 />
               </p>
 
-              <p className='sharerecipeF column'>
+              <p className='editrecipeF column'>
                 <label htmlFor='ingredients'>
                   Ingredients needed:
                 </label>
                 <textarea 
-                value={newRecipeFormData.newRecIng}
-                onChange={(e)=>handleChange(e)}
+                value={editRecipeFormData.editRecIng || ''}
+                onChange={(e)=>handleEditChange(e)}
                 id="ingredients" 
-                name="newRecIng" 
+                name="editRecIng" 
                 rows="4" 
                 placeholder="1. &#10;2. &#10;3. &#10;4. &#10;5. &#10;6." 
                 required></textarea>
 
               </p>
-              <p className='sharerecipeF column'>
+              <p className='editrecipeF column'>
                 <label htmlFor='cookinginst'>
                   Cooking instructions:
                 </label>
                 <textarea 
-                value={newRecipeFormData.newRecIns}
-                onChange={(e)=>handleChange(e)}
+                value={editRecipeFormData.editRecIns || ''}
+                onChange={(e)=>handleEditChange(e)}
                 id="cookinginst" 
-                name="newRecIns"
+                name="editRecIns"
                 rows="4" 
                 placeholder="1. &#10;2. &#10;3. &#10;4. &#10;5. &#10;6." 
                 required></textarea>
 
               </p>
-              <p className='sharerecipeF column'>
+              <p className='editrecipeF column'>
                 <label htmlFor='cuisine'>
                   Which cuisine
                 </label>
                 <select 
-                value={newRecipeFormData.newRecCuis}
-                onChange={(e)=>handleChange(e)}
+                value={editRecipeFormData.editRecCuis || ''}
+                onChange={(e)=>handleEditChange(e)}
                 id="cuisine" 
-                name="newRecCuis" 
+                name="editRecCuis" 
                 required>
                     <option value="">--Please choose an option--</option>
                     <option value="Indian">Indian</option>
@@ -90,38 +119,38 @@ const ShareRecipes = ({handleRecipeSubmit,newRecipeFormData,setnewRecipeFormData
                 </select>
 
               </p>
-              <p className='sharerecipeF column'>
+              <p className='editrecipeF column'>
                 <label htmlFor='cuisinevariety'>
                   Choose variety 
                 </label>
                 <select 
-                value={newRecipeFormData.newRecVaritey}
-                onChange={(e)=>handleChange(e)}
+                value={editRecipeFormData.editRecVariety || ''}
+                onChange={(e)=>handleEditChange(e)}
                 id="cuisinevariety" 
-                name="newRecVariety" 
+                name="editRecVariety" 
                 required>
                     <option value="">--Please choose an option--</option>
                     <option value="General">General</option>
-                    {cuisineV ? cuisineV[0].cuisineVarities.map(variety => (
+                    {cuisineEditV ? cuisineEditV[0].cuisineVarities.map(variety => (
 
                       <option value={variety.cName}>{variety.cName}</option>
                             
 
-                    )) :   <option value="General">General</option>}
+                    )) :   ''}
                   
                  
                 </select>
 
               </p>
-              <p className='sharerecipeF column'>
+              <p className='editrecipeF column'>
                 <label htmlFor='diet'>
                   Choose Diet
                 </label>
                 <select 
-                value={newRecipeFormData.newRecDiet}
-                onChange={(e)=>handleChange(e)}
+                value={editRecipeFormData.editRecDiet || ''}
+                onChange={(e)=>handleEditChange(e)}
                 id="diet" 
-                name="newRecDiet" 
+                name="editRecDiet" 
                 required>
                     <option value="">--Please choose an option--</option>
                     <option value="Veg">Veg</option>
@@ -142,9 +171,8 @@ const ShareRecipes = ({handleRecipeSubmit,newRecipeFormData,setnewRecipeFormData
             
        </form>
         
-        
-        </div>
+    </div>
   )
 }
 
-export default ShareRecipes
+export default EditRecipe
